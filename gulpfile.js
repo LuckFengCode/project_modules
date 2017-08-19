@@ -22,8 +22,11 @@ var cssnano = require('cssnano');
 var connect = require('gulp-connect')
 var path = {
 	"src" : {
-		"scss" : [	
+		"scss" : [	 
 			"./src/**/**.scss"
+		],
+		"less" : [
+			"./src/**/**.less"
 		],
 		"css" : [	
 			"./src/**/**.css"
@@ -46,7 +49,7 @@ var path = {
 }
 // less 任务
 gulp.task("less",function(){
-	gulp.src("./src/css/demo2.less")
+	gulp.src(path.src.less)
 		.pipe(less())  //less 编译
 		.pipe(postcss([
         	autoprefixer //浏览器前缀
